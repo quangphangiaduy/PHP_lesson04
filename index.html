@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+          Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+        </span>
+    </div>
+    <div id="app-3">
+        <span v-if="seen">Thoắt ẩn thoắt hiện</span>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Do you wanna build a Vue app?'
+        }
+    });
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString()
+        }
+    });
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+        }
+    });
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [{
+                text: 'Học JavaScript'
+            }, {
+                text: 'Học Vue'
+            }, {
+                text: 'Xây dựng cái gì đó hay ho'
+            }]
+        }
+    });
+</script>
+
+</html>
